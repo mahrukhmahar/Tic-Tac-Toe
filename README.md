@@ -1,4 +1,4 @@
-A simple <b>Tic Tac Toe game</b> built using HTML, CSS, and JavaScript. Play against a friend (VS Player Mode) or challenge the computer (VS Bot Mode).
+A simple <b>Tic Tac Toe game</b> built using HTML, CSS, and JavaScript.
 
 <h3>Features</h3>
 
