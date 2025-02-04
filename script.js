@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let player2Wins = 0;
     let allowPlayerClicks = true;
 
-    // Show modal and start background music
     modal.classList.add("show");
     gameContainer.classList.add("blurry");
 
@@ -53,9 +52,9 @@ document.addEventListener("DOMContentLoaded", () => {
             // If it's the bot's turn to start, trigger bot's move
             if (!isMultiplayer && currentTurn === 'O') {
                 allowPlayerClicks = false; // Disable player clicks during bot's turn
-                setTimeout(botMove, 600); // Delay bot's move for better UX
+                setTimeout(botMove, 600);
             }
-        }, 1500); // Adjust delay as needed
+        }, 1500); 
     });
 
     const handleClick = (e) => {
@@ -73,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         cell.textContent = currentTurn;
         board[cellIndex] = currentTurn;
-        moveSound.play(); // Play move sound
+        moveSound.play();
 
         if (checkWinner()) {
             handleRoundEnd(currentTurn === 'X' ? 'player1' : 'player2');
@@ -114,7 +113,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (player1Wins >= 3 || player2Wins >= 3) {
             determineOverallWinner();
         } else {
-            // Prepare for the next round
             setTimeout(() => {
                 currentRound++; // Increment the round number
                 resetBoard();
@@ -157,7 +155,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     document.getElementById("playAgainBtn").addEventListener("click", () => {
-        // Reset game state here
         player1Wins = 0;
         player2Wins = 0;
         currentRound = 1;
