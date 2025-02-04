@@ -9,4 +9,14 @@ A simple Tic Tac Toe game built using HTML, CSS, and JavaScript. Play against a 
 <b>Responsive Design:</b> Works on both desktop and mobile screens.
 
 <b>Sound Effects:</b> Enjoy move and win sounds for better experience.
+<br>
+<h3>ScreenShots</h3>
+
+  <img src="output (desktop).png">
+   <br>
+   <img src="output (mobile).png"> 
+   
+
+  
+ 
 
