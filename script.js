@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let player2Wins = 0;
     let allowPlayerClicks = true;
 
-    // Show modal on page load and start background music
+    // Show modal and start background music
     modal.classList.add("show");
     gameContainer.classList.add("blurry");
 
@@ -125,9 +125,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 // If it's the bot's turn to start, trigger bot's move
                 if (!isMultiplayer && currentTurn === 'O') {
                     allowPlayerClicks = false; // Disable player clicks during bot's turn
-                    setTimeout(botMove, 600); // Delay bot's move for better UX
+                    setTimeout(botMove, 600);
                 }
-            }, 1500); // Adjust delay as needed
+            }, 1500); 
         }
     };
 
@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
         determineOverallWinner();
         modal.classList.add("show");
         gameContainer.classList.add("blurry");
-        document.getElementById("playAgainBtn").style.display = "none"; // Ensure button is hidden
+        document.getElementById("playAgainBtn").style.display = "none"; 
     });
     
 
@@ -190,9 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (timeLeft <= 0) {
                 return clearInterval(interval);
             }
-    
             const particleCount = 50 * (timeLeft / duration);
-            // since particles fall down, start a bit higher than random
             confetti(Object.assign({}, defaults, {
                 particleCount,
                 origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
@@ -210,7 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
         board.fill(null);
         cells.forEach(cell => cell.textContent = '');
         currentTurn = 'X';
-        allowPlayerClicks = true; // Enable player clicks when the board is reset
+        allowPlayerClicks = true;
     };
 
     const botMove = () => {
@@ -230,7 +228,6 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const getBestMove = () => {
-        // AI (O) is maximizing player
         let bestScore = -Infinity;
         let bestMove;
 
@@ -325,7 +322,7 @@ function showInputFields(mode) {
         player2Field.style.display = 'none';
     }
 
-    // Add event listener to validate inputs and enable/disable start button
+    //event listener to validate inputs and enable/disable start button
     document.getElementById("player1Name").addEventListener("input", () => {
         startGameButton.disabled = !validateInputFields(mode);
     });
@@ -333,7 +330,6 @@ function showInputFields(mode) {
         startGameButton.disabled = !validateInputFields(mode);
     });
 
-    // Initial validation
     startGameButton.disabled = !validateInputFields(mode);
 }
 
