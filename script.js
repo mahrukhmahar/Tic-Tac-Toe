@@ -58,7 +58,10 @@ document.addEventListener("DOMContentLoaded", () => {
             // If it's the bot's turn to start, trigger bot's move
             if (!isMultiplayer && currentTurn === 'O') {
                 allowPlayerClicks = false; // Disable player clicks during bot's turn
+
                 setTimeout(botMove, 600); 
+                setTimeout(botMove, 600);
+
             }
         }, 1500); 
     });
@@ -78,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         cell.textContent = currentTurn;
         board[cellIndex] = currentTurn;
-        moveSound.play(); 
+        moveSound.play();
 
         if (checkWinner()) {
             handleRoundEnd(currentTurn === 'X' ? 'player1' : 'player2');
@@ -125,11 +128,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 roundLabel.innerHTML = `Round ${currentRound}`;
                 currentTurn = Math.random() < 0.5 ? 'X' : 'O';
                 turnBtn.textContent = `YOUR TURN: ${currentTurn}`;
-
                 // If it's the bot's turn to start, trigger bot's move
                 if (!isMultiplayer && currentTurn === 'O') {
                     allowPlayerClicks = false;
                     setTimeout(botMove, 600); 
+                    allowPlayerClicks = false; // Disable player clicks during bot's turn
+                    setTimeout(botMove, 600);
                 }
             }, 1500); 
         }
@@ -193,7 +197,6 @@ document.addEventListener("DOMContentLoaded", () => {
             if (timeLeft <= 0) {
                 return clearInterval(interval);
             }
-    
             const particleCount = 50 * (timeLeft / duration);
             confetti(Object.assign({}, defaults, {
                 particleCount,
@@ -212,7 +215,7 @@ document.addEventListener("DOMContentLoaded", () => {
         board.fill(null);
         cells.forEach(cell => cell.textContent = '');
         currentTurn = 'X';
-        allowPlayerClicks = true; // Enable player clicks when the board is reset
+        allowPlayerClicks = true;
     };
 
     const botMove = () => {
@@ -326,7 +329,8 @@ function showInputFields(mode) {
         player2Field.style.display = 'none';
     }
 
-    // event listener to validate inputs and enable/disable start button
+    
+    //event listener to validate inputs and enable/disable start button
     document.getElementById("player1Name").addEventListener("input", () => {
         startGameButton.disabled = !validateInputFields(mode);
     });
